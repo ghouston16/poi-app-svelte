@@ -1,7 +1,14 @@
 <script>
     import PoiList from "../components/PoiList.svelte";
     import homer5 from "/src/assets/homer5.jpg";
-  </script>
+    import {navBar, mainBar, subTitle, title} from "../stores"
+
+    title.set("POI Services Inc.");
+    subTitle.set("Latest POIs");
+    navBar.set({
+    bar: mainBar
+    });
+</script>
   
   <div class="uk-text-center" uk-grid>
     <div class="uk-width-1-2@m ">

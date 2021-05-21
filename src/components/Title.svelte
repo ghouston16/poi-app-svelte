@@ -1,8 +1,7 @@
 <script>
     import homer from "/src/assets/homer.png"
-    export let title;
-    export let subTitle;
-  </script>
+    import {title, subTitle, user} from "../stores.js"
+</script>
   
   <div class="uk-width-2-3@m  uk-card uk-card-default uk-padding-small uk-visible@m">
     <div class="uk-grid">
@@ -11,10 +10,10 @@
       </div>
       <div class="uk-width-expand@m uk-text-left">
         <div class="title">
-          {title}
+          {$title}
         </div>
         <div class="uk-text-muted uk-text-small">
-          {subTitle}
+          {$subTitle}
         </div>
       </div>
       <div class="uk-card uk-card-small uk-text-center uk-padding-remove">
@@ -22,9 +21,7 @@
           <div>
             <i class="fas fa-donate fa-3x" style="color:rgb(95, 96, 173)" title="Source repo" uk-tooltip></i>
           </div>
-          <div class="uk-width-expand@m uk-text-left">
-            <div class="uk-text-muted uk-text-center" style="font-size:xx-small">Poi 0.1</div>
-          </div>
+          <div class="uk-text-muted uk-text-center" style="font-size:xx-small">{$user.firstName} {$user.lastName}</div>
         </a>
       </div>
     </div>
