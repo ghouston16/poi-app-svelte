@@ -1,5 +1,6 @@
 import axios from "axios";
 import {user} from "../stores.js"
+import {poi} from "../stores.js"
 
 export class PoiService {
   categoryList = [];
@@ -90,6 +91,19 @@ export class PoiService {
       console.log(poi);
       const response = await axios.post(this.baseUrl + "/api/categories/" + category._id + "/pois", poi);
       return response.status == 200;
+    } catch (error) {
+      return false;
+    }
+  }
+  async deletePoi(id) {
+    try {
+
+//     const response1= await axios.get(`${this.baseUrl}/api/pois/${id}`);
+      
+      //const cat = await axios.get(this.baseUrl + '/api/categories')
+     // console.log(response1);
+      const response = await axios.delete(`${this.baseUrl}/api/pois/${id}`);
+      return response.data;
     } catch (error) {
       return false;
     }

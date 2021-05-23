@@ -9,12 +9,12 @@ export let mainBar = [
   },
   {
   title: "Pois",
-  icon: "fas fa-th-list fa-2x",
+  icon: "fas fa-th-list fa-3x",
   colour: "color:rgb(63, 122, 139)",
   link: "/#/pois",
 }, {
   title: "Categories",
-  icon: "fas fa-folder fa-2x",
+  icon: "fas fa-folder fa-3x",
   colour: "color:rgb(14, 168, 160)",
   link: "/#/categories",
 },
@@ -51,6 +51,15 @@ export const navBar = writable({
 export const user = writable({
   email: "",
   token: ""
+});
+export const poi = writable({
+        name: "",
+        description: "",
+        category: "",
+        lat: "",
+        long: "",
+        creator: "",
+        
 });
 
 export const title = writable("");

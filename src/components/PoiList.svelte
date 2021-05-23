@@ -1,12 +1,25 @@
 <script>
     import {getContext, onMount} from 'svelte'
-  
+    import {push} from 'svelte-spa-router'
+    import {poi} from '../stores'
     const poiService = getContext("PoiService");
     let poiList = [];
-  
+    let message = "";
+
     onMount(async () => {
       poiList = await poiService.getPois();
+      console.log(poiList);
     });
+
+    async function deletePoi(poiId) {
+    console.log(poiId); 
+    let success = await poiService.deletePoi(poiId)
+    if (success) {
+      push('/categories');
+    } else {
+      message = "Error Trying to save settings";
+    }
+  }
   </script>
   
   <h3 class="uk-heading-divider">
@@ -40,8 +53,10 @@
                {poi.long}
             </td>
             <td>
-              {poi.creator.lastName}, {poi.creator.firstName} 
+              {poi.creator.firstName} {poi.creator.lastName},  
               </td>
+              <td>
+                <button on:click={() => deletePoi(`${poi._id}`)} class="uk-button uk-button-danger uk-button-small uk-width-1-1">Delete Account </button>
           </tr>
         {/each}
       </tbody>
