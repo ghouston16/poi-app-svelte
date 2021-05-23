@@ -1,12 +1,13 @@
 <script lang="ts">
   import {getContext} from "svelte";
   import {user} from "../stores";
-
+  import { push } from "svelte-spa-router";
   let firstName = $user.firstName;
   let lastName = $user.lastName;
   let email = $user.email;
   let password = $user.password
   let message = "";
+  
 
   const poiService = getContext("PoiService");
 
@@ -14,6 +15,14 @@
     let success = await poiService.updateSettings(firstName, lastName, email, password, $user._id)
     if (success) {
       message = "Settings updated";
+    } else {
+      message = "Error Trying to save settings";
+    }
+  }
+  async function removeAccount() {
+    let success = await poiService.deleteUser($user._id)
+    if (success) {
+      push('/signup');
     } else {
       message = "Error Trying to save settings";
     }
@@ -61,3 +70,6 @@
     </div>
   {/if}
 </form>
+<div class="uk-margin">
+  <button on:click={removeAccount} class="uk-button uk-button-danger uk-button-large uk-width-1-1">Delete Account </button>
+</div>

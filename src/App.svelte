@@ -24,6 +24,7 @@
     "/create": Create,
     "/settings": Settings,
     "/signup": Signup
+
   }
 </script>
 
