@@ -11,9 +11,7 @@
   <div class="uk-table uk-table-divider">
     <table class="uk-table">
       <thead>
-        <th>
-         Category Name:
-        </th>
+        <th>Name</th>
       </thead>
       <tbody class="uk-text-left">
       {#if categoryList}
@@ -21,6 +19,9 @@
           <tr>
             <td>{category.name}</td>
           </tr>
+          <tr>
+
+            </tr>
         {/each}
         {/if}
           </tbody>

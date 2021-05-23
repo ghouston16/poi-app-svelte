@@ -9,6 +9,7 @@
   import Login from "./pages/Login.svelte";
   import Create from "./pages/Create.svelte";
   import Settings from "./pages/Settings.svelte";
+  import Signup from "./pages/Signup.svelte";
   
 
 
@@ -21,7 +22,8 @@
     "/pois": Pois,
     "/logout" : Main,
     "/create": Create,
-    "/settings": Settings
+    "/settings": Settings,
+    "/signup": Signup
   }
 </script>
 

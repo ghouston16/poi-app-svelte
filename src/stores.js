@@ -3,36 +3,30 @@ import { writable } from "svelte/store";
 export let mainBar = [
   {
     title: "Create A Poi",
-    icon: "fas fa-hand-holding-usd fa-3x",
+    icon: "fas fa-map-marker-alt fa-2x",
     colour: "color:rgb(153, 196, 74)",
     link: "/#/create",
   },
   {
-    title: "Pois so far",
-    icon: "fas fa-th-list fa-3x",
-    colour: "color:rgb(63, 122, 139)",
-    link: "/#/pois",
-  },
-  {
   title: "Pois",
-  icon: "fas fa-hand-holding-usd fa-3x",
-  colour: "color:rgb(153, 196, 74)",
+  icon: "fas fa-th-list fa-2x",
+  colour: "color:rgb(63, 122, 139)",
   link: "/#/pois",
 }, {
   title: "Categories",
-  icon: "fas fa-clipboard-list fa-3x",
-  colour: "color:rgb(63, 122, 139)",
+  icon: "fas fa-folder fa-2x",
+  colour: "color:rgb(14, 168, 160)",
   link: "/#/categories",
 },
 {
   title: "Settings",
-  icon: "fas fa-sliders-h fa-3x",
-  colour: "color:rgb(14, 168, 160)",
+  icon: "fas fa-user fa-2x",
+  colour: "color:rgb(150,19,210)",
   link: "/#/settings",
 },{
   title: "Logout",
-  icon: "fas fa-sign-out-alt fa-3x",
-  colour: "color:rgb(156, 70, 128)",
+  icon: "fas fa-sign-out-alt fa-2x",
+  colour: "color:rgb(224,15,15)",
   link: "/#/logout",
 }];
 

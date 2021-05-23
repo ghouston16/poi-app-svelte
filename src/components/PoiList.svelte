@@ -16,8 +16,10 @@
         <thead>
             <th>Name</th>
             <th>Description</th>
+            <th>Category</th>
             <th>Latitude</th>
             <th>Longitude</th>
+            <th>Creator</th>
             </thead>
       <tbody class="uk-text-left">
         {#each poiList as poi}
@@ -29,11 +31,17 @@
               {poi.description}
             </td>
             <td>
+              {poi.category.name}
+            </td>
+            <td>
                {poi.lat}
             </td>
             <td>
                {poi.long}
             </td>
+            <td>
+              {poi.creator.lastName}, {poi.creator.firstName} 
+              </td>
           </tr>
         {/each}
       </tbody>
