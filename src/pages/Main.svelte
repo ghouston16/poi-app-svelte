@@ -1,7 +1,7 @@
 <script>
     import {title, subTitle, navBar, welcomeBar} from "../stores"
-   // import homer2 from "./src/assets/homer2.png";
-    title.set("Donation Services Inc");
+    import homer2 from "/src/assets/homer.png";
+    title.set("Poi Tracker");
     subTitle.set("Sign up or Log in");
   
     navBar.set({
@@ -11,7 +11,7 @@
   
   <div class="uk-text-center" uk-grid>
     <div class="uk-width-1-2@m">
-     
+      <img width="200" src="{homer2}" alt="homer">
       <p> Lets do this thing </p>
     </div>
     <div class="uk-width-1-2@m ">

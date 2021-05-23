@@ -23,6 +23,12 @@ export let mainBar = [
   icon: "fas fa-clipboard-list fa-3x",
   colour: "color:rgb(63, 122, 139)",
   link: "/#/categories",
+},
+{
+  title: "Settings",
+  icon: "fas fa-sliders-h fa-3x",
+  colour: "color:rgb(14, 168, 160)",
+  link: "/#/settings",
 },{
   title: "Logout",
   icon: "fas fa-sign-out-alt fa-3x",
@@ -49,11 +55,8 @@ export const navBar = writable({
   bar: [],
 });
 export const user = writable({
-  firstName: "",
-  lastName: "",
   email: "",
-  password: "",
-  _id: ""
+  token: ""
 });
 
 export const title = writable("");

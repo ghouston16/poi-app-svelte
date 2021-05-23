@@ -3,8 +3,8 @@
     const poiService = getContext("PoiService");
 
     let categoryList = [];
-    let lat = 0.0;
-    let long = 0.0;
+    let lat = 0;
+    let long = 0;
     let creator = "";
     let name = "";
     let description = "";
@@ -16,12 +16,14 @@
     //let creator = ""
 
     onMount(async () => {
-        categoryList = await poiService.getCategories();
+        categoryList = await poiService.getCategories()
+        console.log(categoryList)
     });
 
     async function createPoi() {
         const success = await poiService.createPoi(name, description,categoryList[selectedCategory],lat,long,creator,image)
         if (success) {
+            
         } else {
             errorMessage = "Poi not completed - some error occurred";
         }
@@ -87,6 +89,16 @@
                         type="string"
                         name="long"
                         placeholder="Longitude"
+                    />
+                </div>
+                <div class="uk-form-controls">
+                    <input
+                        bind:value={image}
+                        class="uk-input"
+                        id="form-stacked-text"
+                        type="string"
+                        name="image"
+                        placeholder="URL"
                     />
                 </div>
             </div>

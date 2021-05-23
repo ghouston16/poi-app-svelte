@@ -8,10 +8,11 @@
   import Main from "./pages/Main.svelte";
   import Login from "./pages/Login.svelte";
   import Create from "./pages/Create.svelte";
+  import Settings from "./pages/Settings.svelte";
   
 
 
-  setContext("PoiService", new PoiService("http://localhost:4000"));
+  setContext("PoiService", new PoiService("http://DESKTOP-9AB3VU3:4000"));
 
   let routes = {
     "/": Main,
@@ -19,7 +20,8 @@
     "/categories": Categories,
     "/pois": Pois,
     "/logout" : Main,
-    "/create": Create
+    "/create": Create,
+    "/settings": Settings
   }
 </script>
 

@@ -1,13 +1,23 @@
 <script>
+import { getContext } from "svelte";
+
     import { push } from "svelte-spa-router";
   
     let email = ""
     let password = "";
     let errorMessage = "";
-  
+    const poiService = getContext("PoiService")
     async function login() {
+      let success = await poiService.login(email, password)
+    if (success) {
       push("/categories");
+    } else {
+      email = "";
+      password = "";
+      errorMessage = "Invalid Credentials";
     }
+  }
+  
   </script>
   
   <form on:submit|preventDefault={login}>

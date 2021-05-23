@@ -4,20 +4,40 @@ import {user} from "../stores.js"
 export class PoiService {
   categoryList = [];
   poiList = [];
-  baseUrl = "";
+  baseUrl = "http://DESKTOP-9AB3VU3:4000";
 
   constructor(baseUrl) {
     this.baseUrl = baseUrl;
+    if (localStorage.poi) {
+      axios.defaults.headers.common["Authorization"] = "Bearer " + JSON.parse(localStorage.poi);
+    }
   }
 
   async login(email, password) {
     try {
       const response = await axios.post(`${this.baseUrl}/api/users/authenticate`, {email, password});
-      user.set(response.data);
-      return response.status == 200;
+      axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
+      if (response.data.success) {
+        user.set({
+          email: email,
+          token: response.data.token
+        });
+        localStorage.poi = JSON.stringify(response.data.token)
+        return true;
+      }
+      return false;
     } catch (error) {
       return false;
     }
+  }
+
+  async logout() {
+    user.set({
+      email: "",
+      token: ""
+    });
+    axios.defaults.headers.common["Authorization"] = "";
+    localStorage.poi = null;
   }
 
   async getCategories() {
@@ -33,6 +53,7 @@ export class PoiService {
   async getPois() {
     try {
       const response = await axios.get(this.baseUrl + "/api/pois")
+      console.log(response)
       this.poiList = await response.data;
       return this.poiList;
     } catch (error) {
@@ -50,8 +71,28 @@ export class PoiService {
         creator: creator,
         image: image
       };
+      //const cat = await axios.get(this.baseUrl + '/api/categories')
+      console.log(poi);
       const response = await axios.post(this.baseUrl + "/api/categories/" + category._id + "/pois", poi);
       return response.status == 200;
+    } catch (error) {
+      return false;
+    }
+  }
+  async updateSettings(firstName, lastName, email, password, id) {
+    try {
+      const userDetails = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+        _id: id
+      };
+      console.log(userDetails);
+      const response = await axios.put(`${this.baseUrl}/api/users/${id}`, userDetails);
+      const newUser = await response.data;
+      user.set(newUser);
+      return true;
     } catch (error) {
       return false;
     }
