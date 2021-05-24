@@ -1,25 +1,23 @@
 <script>
     import {getContext, onMount} from 'svelte'
     import {push} from 'svelte-spa-router'
-    import regexparam from 'svelte-spa-router'
-    import {poi} from '../stores'
+    import {category, poi} from '../stores'
     const poiService = getContext("PoiService");
     let poiList = [];
     let message = "";
     //import {push} from 'svelte-spa-router'
 
     onMount(async () => {
-      poiList = await poiService.getPois();
-      //console.log(poiList);
+      poiList = await poiService.getCategoryPois($category._id);
+      console.log(poiList);
     });
-
     async function deletePoi(poiId) {
     console.log(poiId); 
     let success = await poiService.deletePoi(poiId)
     if (success) {
       //const poiList = await poiService.getPois()
       push('/categories')
-      const poiList = await poiService.getPois()
+     // const poiList = await poiService.get()
     } else {
       message = "Error Trying to save settings";
     }
@@ -27,7 +25,7 @@
   </script>
   <div class="uk-margin uk-width-1xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
   <h3 class="uk-heading-divider">
-    Poi List </h3>
+    Category POIs: {$category.name} </h3>
     <table class="uk-table">
         <thead>
             <th>Name</th>

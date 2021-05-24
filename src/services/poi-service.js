@@ -65,7 +65,27 @@ export class PoiService {
       return [];
     }
   }
+  async getCategoryById(id){
+    try{
+      const response = await axios.get(this.baseUrl + "/api/categories/" + id)
+      const category = await response.data;
+      console.log(category); 
+      return category;
+    }catch (error) {
+      return [];
+  }
+}
+  async getCategoryPois(id){
+    try{
+      const response = await axios.get(this.baseUrl + "/api/categories/" + id + "/pois")
+      const poiList = await response.data;
+      console.log(poiList);
+      return poiList;
+    } catch (error) {
+      return [];
+    }
 
+  }
   async getPois() {
     try {
       const response = await axios.get(this.baseUrl + "/api/pois")

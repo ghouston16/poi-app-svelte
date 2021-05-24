@@ -9,12 +9,12 @@ export let mainBar = [
   },
   {
   title: "Pois",
-  icon: "fas fa-th-list fa-3x",
+  icon: "fas fa-th-list fa-2x",
   colour: "color:rgb(63, 122, 139)",
   link: "/#/pois",
 }, {
   title: "Categories",
-  icon: "fas fa-folder fa-3x",
+  icon: "fas fa-folder fa-2x",
   colour: "color:rgb(14, 168, 160)",
   link: "/#/categories",
 },
@@ -59,8 +59,13 @@ export const poi = writable({
         lat: "",
         long: "",
         creator: "",
-        
+        image: ""
 });
+export const category = writable({
+  name: "",
+  _id: ""
+});
+
 
 export const title = writable("");
 export const subTitle = writable("");

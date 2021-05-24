@@ -10,7 +10,9 @@
   import Create from "./pages/Create.svelte";
   import Settings from "./pages/Settings.svelte";
   import Signup from "./pages/Signup.svelte";
-  
+  import CategoryPoi from "./pages/CategoryPoi.svelte";
+  import regexparam from 'regexparam';
+    
 
 
   setContext("PoiService", new PoiService("http://DESKTOP-9AB3VU3:4000"));
@@ -23,7 +25,8 @@
     "/logout" : Main,
     "/create": Create,
     "/settings": Settings,
-    "/signup": Signup
+    "/signup": Signup,
+    "/category": CategoryPoi
 
   }
 </script>

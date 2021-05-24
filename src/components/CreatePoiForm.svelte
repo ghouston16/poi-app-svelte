@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount, getContext } from "svelte";
+    import {push} from 'svelte-spa-router';
     const poiService = getContext("PoiService");
 
     let categoryList = [];
@@ -15,6 +16,7 @@
     let image = "";
     //let creator = ""
 
+
     onMount(async () => {
         categoryList = await poiService.getCategories()
         console.log(categoryList)
@@ -23,7 +25,7 @@
     async function createPoi() {
         const success = await poiService.createPoi(name, description,categoryList[selectedCategory],lat,long,creator,image)
         if (success) {
-            
+            push('/pois')
         } else {
             errorMessage = "Poi not completed - some error occurred";
         }

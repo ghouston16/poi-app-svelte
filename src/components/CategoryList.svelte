@@ -1,10 +1,32 @@
 <script>
-    import {onMount, getContext} from 'svelte'
+import {getContext, onMount} from 'svelte'
+    import {push} from 'svelte-spa-router'
+    import {category, poi} from '../stores'
+    //import {category} from '../stores'
     const poiService = getContext("PoiService");
-    let categoryList;
+    let poiList = [];
+    let message = "";
+    let categoryList = [];
+    import regexparam from 'regexparam'
+
     onMount(async () => {
       categoryList = await poiService.getCategories()
-    })
+    });
+    async function categoryPoi(categoryId) {
+    console.log(categoryId); 
+    const cat = await poiService.getCategoryById(categoryId);
+    category.set(cat);
+    let success = await poiService.getCategoryPois(categoryId)
+    console.log(success)
+    if (success) {
+      //const poiList = await poiService.getPois()
+      push(`/category`)
+     // const poiList = await poiService.getPois()
+    } else {
+      message = "Error Trying to save settings";
+    }
+  }
+    
   </script>
   <h3 class="uk-heading-divider">
     Category List </h3>
@@ -19,6 +41,10 @@
           <tr>
             <td>{category.name}</td>
           </tr>
+          <tr>
+            <td>
+              <icon on:click={() => categoryPoi(`${category._id}`)} class="far fa-trash-alt fa-1x" style="color:rgb(220,7,55)" title="Delete"> </icon>
+        </tr>
           <tr>
 
             </tr>
