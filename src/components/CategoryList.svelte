@@ -81,7 +81,7 @@
                 on:click={() => updateCategory(`${category._id}`)}
                 class="fas fa-pen-alt fa-1x"
                 style="color:rgb(169,19,205)"
-                title=""
+                title="Update"
               />
             </td>
             <td>

@@ -1,7 +1,9 @@
 <script lang="ts">
+    import 'leaflet/dist/leaflet.css';
     import { onMount, getContext } from "svelte";
     import {push} from 'svelte-spa-router';
     const poiService = getContext("PoiService");
+    import {LeafletMap} from '../services/leaflet-map';
 
     let categoryList = [];
     let lat = 0;
@@ -15,13 +17,19 @@
     let errorMessage = "";
     let image = "";
     //let creator = ""
-
+    let map;
 
     onMount(async () => {
+    /*  const mapConfig = {
+        location: {lat: lat, lng: long},
+        zoom: 8,
+        minZoom: 7,
+      };
+      */
+      //  map = new LeafletMap("poi-map", mapConfig, 'Terrain');
         categoryList = await poiService.getCategories()
         console.log(categoryList)
     });
-
     async function createPoi() {
         const success = await poiService.createPoi(name, description,categoryList[selectedCategory],lat,long,creator,image)
         if (success) {
@@ -30,6 +38,11 @@
             errorMessage = "Poi not completed - some error occurred";
         }
     }
+  /*  function justAdded(name, description, category, lat, long, creator, image) {
+        map.addMarker({lat: lat, lng: long});
+        map.moveTo(12, {lat: lat, lng: long}) 
+            }
+    */
 </script>
 
 <form on:submit|preventDefault={createPoi} class="uk-form-stacked uk-text-left">

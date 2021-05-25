@@ -34,6 +34,15 @@
     //poi.set(success.data)
   }
   }
+  async function viewPoi(poiId){
+    let candidatePoi = await poiService.getPoiById(poiId)
+    if (candidatePoi){
+      poi.set(candidatePoi);
+      push('/poi')
+    } else {
+        
+    }
+  }
   </script>
 
   <h3 class="uk-heading-divider">
@@ -45,6 +54,9 @@
             <th>Latitude</th>
             <th>Longitude</th>
             <th>Creator</th>
+            <th></th>
+            <th></th>
+            <th></th>
             </thead>
       <tbody class="uk-text-left">
       {#if poiList}
@@ -68,7 +80,7 @@
               {poi.creator.firstName} {poi.creator.lastName},  
               </td>
               <td>
-                <icon on:click={() => viewPoi(`${poi._id}`)} class="fas fa-list-alt fa-1x" style="color:rgb(56,191,25)" title="View"> </icon>
+                <icon on:click={() => viewPoi(`${poi._id}`)} class="far fa-folder fa-1x" style="color:rgb(56,191,25)" title="View"> </icon>
                 </td>
               <td>
                 <icon on:click={() => updatePoi(`${poi._id}`)} class="fas fa-pen-alt fa-1x" style="color:rgb(169,19,205)" title="Update"> </icon>
