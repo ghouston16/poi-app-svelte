@@ -14,6 +14,7 @@
   import regexparam from 'regexparam';
   import UpdatePoi from "./pages/UpdatePoi.svelte";
   import UpdateCategory from "./pages/UpdateCategory.svelte"
+  import AddCategory from "./pages/AddCategory.svelte"
     
 
 
@@ -30,7 +31,8 @@
     "/signup": Signup,
     "/category": CategoryPoi,
     "/updatepoi": UpdatePoi,
-    "/updatecategory": UpdateCategory
+    "/updatecategory": UpdateCategory,
+    "/addcategory": AddCategory
 
   }
 </script>

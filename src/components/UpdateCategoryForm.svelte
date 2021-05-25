@@ -34,6 +34,7 @@
 </script>
 
 <form on:submit|preventDefault={save}>
+    <h3 class="uk-card-title uk-text-left">Update Category: {$category.name}</h3>
     <div class="uk-margin uk-text-left">
         <div class="uk-margin">
             <label class="uk-form-label">Name</label>

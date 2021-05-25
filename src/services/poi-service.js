@@ -94,10 +94,10 @@ export class PoiService {
         name: name,
         _id: id
       };
-      console.log(categoryDetails);
+     // console.log(categoryDetails);
       const response = await axios.put(this.baseUrl + "/api/categories/" + id, categoryDetails);
       const newCategory = await response.data;
-      console.log(newCategory);
+     // console.log(newCategory);
       category.set(newCategory);
       return true;
     } catch (error) {
@@ -106,13 +106,21 @@ export class PoiService {
   }
   async deleteCategory(id) {
     try {
-
-//     const response1= await axios.get(`${this.baseUrl}/api/pois/${id}`);
-      
-      //const cat = await axios.get(this.baseUrl + '/api/categories')
-     // console.log(response1);
       const response = await axios.delete(`${this.baseUrl}/api/categories/${id}`);
       return response.data;
+    } catch (error) {
+      return false;
+    }
+  }
+  async addCategory(name) {
+    try {
+      const category = {
+        name: name,
+      };
+      //const cat = await axios.get(this.baseUrl + '/api/categories')
+     // console.log(poi);
+      const response = await axios.post(this.baseUrl + "/api/categories ", category);
+      return true;
     } catch (error) {
       return false;
     }
@@ -120,7 +128,7 @@ export class PoiService {
   async getPois() {
     try {
       const response = await axios.get(this.baseUrl + "/api/pois")
-      console.log(response)
+     // console.log(response)
       this.poiList = await response.data;
       return this.poiList;
     } catch (error) {
@@ -132,7 +140,7 @@ export class PoiService {
       const response = await axios.get(`${this.baseUrl}/api/pois/${id}`)
       //console.log(response)
       const poi = await response.data;
-      console.log(poi)
+      //console.log(poi)
       return poi;
     } catch (error) {
       return null;
@@ -150,7 +158,7 @@ export class PoiService {
         image: image
       };
       //const cat = await axios.get(this.baseUrl + '/api/categories')
-      console.log(poi);
+     // console.log(poi);
       const response = await axios.post(this.baseUrl + "/api/categories/" + category._id + "/pois", poi);
       return response.status == 200;
     } catch (error) {
@@ -159,11 +167,6 @@ export class PoiService {
   }
   async deletePoi(id) {
     try {
-
-//     const response1= await axios.get(`${this.baseUrl}/api/pois/${id}`);
-      
-      //const cat = await axios.get(this.baseUrl + '/api/categories')
-     // console.log(response1);
       const response = await axios.delete(`${this.baseUrl}/api/pois/${id}`);
       return response.data;
     } catch (error) {
@@ -215,7 +218,7 @@ export class PoiService {
       //console.log(response)
       const user = await response.data;
       user.set(user);
-      console.log(user)
+     // console.log(user)
       return user;
     } catch (error) {
       return null;

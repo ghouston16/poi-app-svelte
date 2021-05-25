@@ -14,7 +14,7 @@
   <div class="uk-card uk-card-default uk-card-body uk-box-shadow-large uk-width-large ">
     <img width="200" src="{homer5}" alt="homer">
   </div>
-  <div class="uk-width-1-2@m">
+  <div class="uk-width-expand@m">
     <div class="uk-card uk-card-default uk-card-body uk-box-shadow-large uk-width-2xlarge ">
         <PoiList/>
       </div>

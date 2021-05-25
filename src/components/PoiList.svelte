@@ -17,9 +17,7 @@
     console.log(poiId); 
     let success = await poiService.deletePoi(poiId)
     if (success) {
-      //const poiList = await poiService.getPois()
-      push('/categories')
-      const poiList = await poiService.getPois()
+      poiList = await poiService.getPois();
     } else {
       message = "Error Trying to save settings";
     }
@@ -48,14 +46,17 @@
             <th>Longitude</th>
             <th>Creator</th>
             </thead>
-      <tbody class="uk-text-center">
+      <tbody class="uk-text-left">
+      {#if poiList}
         {#each poiList as poi}
           <tr>
             <td>
               {poi.name}
             </td>
             <td>
+              {#if poi.category}
               {poi.category.name}
+              {/if}
             </td>
             <td>
                {poi.lat}
@@ -67,7 +68,7 @@
               {poi.creator.firstName} {poi.creator.lastName},  
               </td>
               <td>
-                <icon on:click={() => viewPoi(`${poi._id}`)} class="fas fa-pen-alt fa-1x" style="color:rgb(169,19,205)" title="View"> </icon>
+                <icon on:click={() => viewPoi(`${poi._id}`)} class="fas fa-list-alt fa-1x" style="color:rgb(56,191,25)" title="View"> </icon>
                 </td>
               <td>
                 <icon on:click={() => updatePoi(`${poi._id}`)} class="fas fa-pen-alt fa-1x" style="color:rgb(169,19,205)" title="Update"> </icon>
@@ -77,5 +78,6 @@
                 </td>
           </tr>
         {/each}
+      {/if}
       </tbody>
     </table>
