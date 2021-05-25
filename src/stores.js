@@ -50,7 +50,12 @@ export const navBar = writable({
 });
 export const user = writable({
   email: "",
-  token: ""
+  token: "",
+ /* firstName: "",
+  lastName: "",
+  password: ""
+
+*/
 });
 export const poi = writable({
         name: "",
@@ -63,9 +68,8 @@ export const poi = writable({
 });
 export const category = writable({
   name: "",
-  _id: ""
+  _id: "",
 });
-
 
 export const title = writable("");
 export const subTitle = writable("");

@@ -12,7 +12,8 @@
   import Signup from "./pages/Signup.svelte";
   import CategoryPoi from "./pages/CategoryPoi.svelte";
   import regexparam from 'regexparam';
-import UpdatePoi from "./pages/UpdatePoi.svelte";
+  import UpdatePoi from "./pages/UpdatePoi.svelte";
+  import UpdateCategory from "./pages/UpdateCategory.svelte"
     
 
 
@@ -28,7 +29,8 @@ import UpdatePoi from "./pages/UpdatePoi.svelte";
     "/settings": Settings,
     "/signup": Signup,
     "/category": CategoryPoi,
-    "/updatepoi": UpdatePoi
+    "/updatepoi": UpdatePoi,
+    "/updatecategory": UpdateCategory
 
   }
 </script>

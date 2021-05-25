@@ -1,6 +1,7 @@
 import axios from "axios";
 import {user} from "../stores.js"
 import {poi} from "../stores.js"
+import {category} from "../stores"
 
 export class PoiService {
   categoryList = [];
@@ -50,7 +51,8 @@ export class PoiService {
   async logout() {
     user.set({
       email: "",
-      token: ""
+      token: "",
+
     });
     axios.defaults.headers.common["Authorization"] = "";
     localStorage.poi = null;
@@ -85,6 +87,22 @@ export class PoiService {
       return [];
     }
 
+  }
+  async updateCategory(name, id) {
+    try {
+      const categoryDetails = {
+        name: name,
+        _id: id
+      };
+      console.log(categoryDetails);
+      const response = await axios.put(this.baseUrl + "/api/categories/" + id, categoryDetails);
+      const newCategory = await response.data;
+      console.log(newCategory);
+      category.set(newCategory);
+      return true;
+    } catch (error) {
+      return false;
+    }
   }
   async deleteCategory(id) {
     try {
@@ -192,6 +210,17 @@ export class PoiService {
       return false;
     }
   }
+  async getUserById(id){
+    const response = await axios.get(`${this.baseUrl}/api/users/${id}`)
+      //console.log(response)
+      const user = await response.data;
+      user.set(user);
+      console.log(user)
+      return user;
+    } catch (error) {
+      return null;
+    }
+
   async deleteUser(id){
         try {
           const response = await axios.delete(`${this.baseUrl}/api/users/${id}`);

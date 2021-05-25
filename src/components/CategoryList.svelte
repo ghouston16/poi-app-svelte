@@ -26,14 +26,27 @@ import {getContext, onMount} from 'svelte'
       } else {
         message = "Error Trying to save settings";
     }
+  } 
+  async function updateCategory(categoryId){
+  console.log(categoryId); 
+  const candidateCategory = await poiService.getCategoryById(categoryId);
+  category.set(candidateCategory)
+  console.log(candidateCategory)
+  let success= await poiService.getCategoryById(categoryId)
+  if (success){
+    push('/updatecategory')
+    //console.log(success.data)
+    //poi.set(success.data)
   }
+  }
+  
   async function deleteCategory(categoryId) {
     console.log(categoryId); 
     let success = await poiService.deleteCategory(categoryId)
     if (success) {
       //const poiList = await poiService.getPois()
       push('/categories')
-      const poiList = await poiService.getPois()
+    //  const poiList = await poiService.getPois()
     } else {
       message = "Error Trying to save settings";
     }
@@ -58,6 +71,9 @@ import {getContext, onMount} from 'svelte'
               <td>
                 <icon on:click={() => deleteCategory(`${category._id}`)} class="far fa-trash-alt fa-1x" style="color:rgb(220,7,55)" title="Delete"> </icon>
                 </td>
+                <td>
+                  <icon on:click={() => updateCategory(`${category._id}`)} class="far fa-folder fa-1x" style="color:rgb(56,191,25)" title="View"> </icon>
+                  </td>
         </tr>
           <tr>
 
