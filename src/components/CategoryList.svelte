@@ -12,16 +12,28 @@ import {getContext, onMount} from 'svelte'
     onMount(async () => {
       categoryList = await poiService.getCategories()
     });
+    
     async function categoryPoi(categoryId) {
+      console.log(categoryId); 
+      const cat = await poiService.getCategoryById(categoryId);
+      category.set(cat);
+      let success = await poiService.getCategoryPois(categoryId)
+      console.log(success)
+      if (success) {
+        //const poiList = await poiService.getPois()
+        push(`/category`)
+      // const poiList = await poiService.getPois()
+      } else {
+        message = "Error Trying to save settings";
+    }
+  }
+  async function deleteCategory(categoryId) {
     console.log(categoryId); 
-    const cat = await poiService.getCategoryById(categoryId);
-    category.set(cat);
-    let success = await poiService.getCategoryPois(categoryId)
-    console.log(success)
+    let success = await poiService.deleteCategory(categoryId)
     if (success) {
       //const poiList = await poiService.getPois()
-      push(`/category`)
-     // const poiList = await poiService.getPois()
+      push('/categories')
+      const poiList = await poiService.getPois()
     } else {
       message = "Error Trying to save settings";
     }
@@ -40,10 +52,12 @@ import {getContext, onMount} from 'svelte'
         {#each categoryList as category}
           <tr>
             <td>{category.name}</td>
-          </tr>
-          <tr>
             <td>
-              <icon on:click={() => categoryPoi(`${category._id}`)} class="far fa-trash-alt fa-1x" style="color:rgb(220,7,55)" title="Delete"> </icon>
+              <icon on:click={() => categoryPoi(`${category._id}`)} class="far fa-folder fa-1x" style="color:rgb(56,191,25)" title="View"> </icon>
+              </td>
+              <td>
+                <icon on:click={() => deleteCategory(`${category._id}`)} class="far fa-trash-alt fa-1x" style="color:rgb(220,7,55)" title="Delete"> </icon>
+                </td>
         </tr>
           <tr>
 

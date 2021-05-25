@@ -12,6 +12,7 @@
   import Signup from "./pages/Signup.svelte";
   import CategoryPoi from "./pages/CategoryPoi.svelte";
   import regexparam from 'regexparam';
+import UpdatePoi from "./pages/UpdatePoi.svelte";
     
 
 
@@ -26,7 +27,8 @@
     "/create": Create,
     "/settings": Settings,
     "/signup": Signup,
-    "/category": CategoryPoi
+    "/category": CategoryPoi,
+    "/updatepoi": UpdatePoi
 
   }
 </script>

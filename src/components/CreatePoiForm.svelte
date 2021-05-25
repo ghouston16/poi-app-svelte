@@ -33,8 +33,10 @@
 </script>
 
 <form on:submit|preventDefault={createPoi} class="uk-form-stacked uk-text-left">
+    <h3 class="uk-heading-divider uk-text-center">
+        Add a POI </h3>
     <div class="uk-grid uk-grid-stack">
-        <div class="uk-width-1-2@m">
+        <div class="uk-width-1@m">
             <div class="uk-margin">
                 <label class="uk-form-label" for="form-stacked-text">Name</label
                 >
@@ -45,7 +47,7 @@
                         id="form-stacked-text"
                         type="string"
                         name="name"
-                        placeholder="Euros"
+                        placeholder="POI Name"
                     />
                 </div>
             </div>
@@ -93,6 +95,10 @@
                         placeholder="Longitude"
                     />
                 </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text"
+                        >Poi Image</label
+                    >
                 <div class="uk-form-controls">
                     <input
                         bind:value={image}
@@ -123,11 +129,13 @@
                     {/each}
                 </div>
             </div>
+            <div class=" uk-width-1@m">
             <div class="uk-margin">
                 <button
-                    class="submit uk-button uk-button-primary uk-button-large uk-width-1-1"
+                    class="submit uk-button uk-button-primary uk-button-xlarge uk-width-1-1"
                     >Create</button
                 >
+            </div>
             </div>
             {#if errorMessage}
                 <div class="uk-text-left uk-text-small">

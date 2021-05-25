@@ -86,6 +86,19 @@ export class PoiService {
     }
 
   }
+  async deleteCategory(id) {
+    try {
+
+//     const response1= await axios.get(`${this.baseUrl}/api/pois/${id}`);
+      
+      //const cat = await axios.get(this.baseUrl + '/api/categories')
+     // console.log(response1);
+      const response = await axios.delete(`${this.baseUrl}/api/categories/${id}`);
+      return response.data;
+    } catch (error) {
+      return false;
+    }
+  }
   async getPois() {
     try {
       const response = await axios.get(this.baseUrl + "/api/pois")
@@ -94,6 +107,17 @@ export class PoiService {
       return this.poiList;
     } catch (error) {
       return [];
+    }
+  }
+  async getPoiById(id) {
+    try {
+      const response = await axios.get(`${this.baseUrl}/api/pois/${id}`)
+      //console.log(response)
+      const poi = await response.data;
+      console.log(poi)
+      return poi;
+    } catch (error) {
+      return null;
     }
   }
   async createPoi(name, description, category, lat, long, creator, image) {
@@ -124,6 +148,28 @@ export class PoiService {
      // console.log(response1);
       const response = await axios.delete(`${this.baseUrl}/api/pois/${id}`);
       return response.data;
+    } catch (error) {
+      return false;
+    }
+  }
+  async updatePoi(name, description, category, lat, long, image, creator, id) {
+    try {
+      const poiDetails = {
+        name: name,
+        description: description,
+        category: category,
+        lat: lat,
+        long: long,
+        image: image,
+        creator: creator,
+        _id: id
+      };
+      console.log(poiDetails);
+      const response = await axios.put(this.baseUrl + "/api/pois/" + id, poiDetails);
+      const newPoi = await response.data;
+      console.log(response);
+      poi.set(newPoi);
+      return true;
     } catch (error) {
       return false;
     }
