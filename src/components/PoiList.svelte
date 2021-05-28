@@ -43,6 +43,16 @@
         
     }
   }
+  async function viewGallery(poiId){
+        let candidatePoi = await poiService.getPoiById(poiId)
+        console.log("Viewing" + poiId);
+        if (candidatePoi){
+            poi.set(candidatePoi);
+            push('/gallery')
+        } else {
+
+        }
+    }
   </script>
 
   <h3 class="uk-heading-divider">
@@ -85,6 +95,9 @@
               <td>
                 <icon on:click={() => updatePoi(`${poi._id}`)} class="fas fa-pen-alt fa-1x" style="color:rgb(169,19,205)" title="Update"> </icon>
                 </td>
+              <td>
+                  <icon on:click={() => viewGallery(`${poi._id}`)} class="far fa-pen-alt fa-1x" style="color:rgb(220,7,55)" title="Gallery"> </icon>
+              </td>
               <td>
                 <icon on:click={() => deletePoi(`${poi._id}`)} class="far fa-trash-alt fa-1x" style="color:rgb(220,7,55)" title="Delete"> </icon>
                 </td>

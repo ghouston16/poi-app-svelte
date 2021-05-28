@@ -21,7 +21,6 @@
   
   <form on:submit|preventDefault={login}>
     <div class="uk-margin uk-text-left">
-      <!-- svelte-ignore a11y-label-has-associated-control -->
       <label class="uk-form-label">Email</label>
       <div class="uk-inline uk-width-1-1">
         <span class="uk-form-icon" uk-icon="icon: mail"></span>

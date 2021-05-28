@@ -16,6 +16,7 @@
   import UpdateCategory from "./pages/UpdateCategory.svelte"
   import AddCategory from "./pages/AddCategory.svelte"
   import Poi from "./components/Poi.svelte";
+  import Gallery from "./pages/Gallery.svelte";
     
 
 
@@ -35,7 +36,7 @@
     "/updatecategory": UpdateCategory,
     "/addcategory": AddCategory,
     "/poi": Poi,
-    "/map": Map
+    "/gallery": Gallery
   }
 </script>
 

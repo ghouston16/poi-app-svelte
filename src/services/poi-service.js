@@ -3,6 +3,7 @@ import {user} from "../stores.js"
 import {poi} from "../stores.js"
 import {category} from "../stores"
 
+
 export class PoiService {
   categoryList = [];
   poiList = [];
@@ -18,6 +19,7 @@ export class PoiService {
   async login(email, password) {
     try {
       const response = await axios.post(`${this.baseUrl}/api/users/authenticate`, {email, password});
+      console.log(response)
       axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
       if (response.data.success) {
         user.set({
@@ -143,6 +145,17 @@ export class PoiService {
       //console.log(poi)
       return poi;
     } catch (error) {
+      return null;
+    }
+  }
+  async getImages(id){
+    try{
+      console.log(id);
+      const response = await axios.get(`${this.baseUrl}/api/gallery/${id}`)
+      const images = await response.data;
+      console.log(images);
+      return images;
+    } catch (error){
       return null;
     }
   }

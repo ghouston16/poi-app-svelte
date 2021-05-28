@@ -19,12 +19,6 @@ export let mainBar = [
   link: "/#/categories",
 },
 {
-  title: "Donation Map",
-  icon: "fas fa-map-marked-alt fa-3x",
-  colour: "rgb(102, 153, 255)",
-  link: "/#/Map",
-},
-{
   title: "Settings",
   icon: "fas fa-user fa-2x",
   colour: "color:rgb(150,19,210)",
