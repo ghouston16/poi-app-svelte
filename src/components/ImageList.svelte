@@ -3,19 +3,30 @@
     import {push} from 'svelte-spa-router'
     import {poi} from '../stores'
     import Poi from './Poi.svelte';
+    import ImageForm from "./ImageForm.svelte";
+
     const poiService = getContext("PoiService");
     let imageList = [];
     let message = "";
     let poiId = $poi._id;
-   // let email = $user.email;
+    // let email = $user.email;
     //import {push} from 'svelte-spa-router'  
 
     onMount(async () => {
-      imageList = await poiService.getImages($poi._id);
-      console.log(imageList);
+        imageList = await poiService.getImages($poi._id);
+        console.log(imageList);
     });
+    async function deleteImage() {
+        console.log(poiId);
+        let success = await poiService.deletePoi(poiId)
+        if (success) {
+            poiList = await poiService.getPois();
+        } else {
+            message = "Error Trying to save settings";
+        }
+    }
 
-    </script>
+</script>
  <h3 class="uk-heading-divider">
     Poi Gallery </h3>
 <div class="uk-child-width-1-4@s uk-flex uk-flex-center" uk-grid uk-height-match="target: .uk-card">
@@ -37,3 +48,4 @@
     {/each}
     {/if}
     </div>
+    <ImageForm/>

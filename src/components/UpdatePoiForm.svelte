@@ -1,7 +1,9 @@
 <script lang="ts">
-    import { getContext, onMount } from "svelte";
-    import { poi, user } from "../stores";
-    import { push } from "svelte-spa-router";
+    import {getContext, onMount} from "svelte";
+    import {poi, user} from "../stores";
+    import {push} from "svelte-spa-router";
+    import ImageForm from "./ImageForm.svelte";
+
     let name = $poi.name;
     let description = $poi.description;
     let lat = $poi.lat;
@@ -14,7 +16,7 @@
     let selectedCategory = 0;
     const poiService = getContext("PoiService");
 
-    
+
     onMount(async () => {
         categoryList = await poiService.getCategories()
         const candidatePoi = await poiService.getPoiById($poi._id);
@@ -24,7 +26,7 @@
 
 
     async function save() {
-       // const candidatePoi = await poiService.getPoiById($poi._id);
+        // const candidatePoi = await poiService.getPoiById($poi._id);
         let success = await poiService.updatePoi(
             name,
             description,
@@ -41,13 +43,14 @@
             message = "Error Trying to save settings";
         }
     }
+
     async function removePoi() {
-      let success = await poiService.deletePoi($poi._id)
-      if (success) {
-        push('/pois');
-      } else {
-        message = "Error Trying to save settings";
-      }
+        let success = await poiService.deletePoi($poi._id)
+        if (success) {
+            push('/pois');
+        } else {
+            message = "Error Trying to save settings";
+        }
     }
 
 </script>
@@ -156,4 +159,7 @@
         class="uk-button uk-button-danger uk-button-large uk-width-1-1"
         >Delete
     </button>
+</div>
+<div>
+    <ImageForm/>
 </div>

@@ -1,15 +1,16 @@
 <script lang="ts">
-    import {mainBar, navBar, subTitle, title} from "../stores";
-    import homer from "/src/assets/homer.png";
-    import SettingsForm from "../components/SettingsForm.svelte";
-  
-    title.set("Donation Services Inc");
-    subTitle.set("Edits and then save your settings");
-  
-    navBar.set({
-      bar: mainBar
-    });
-  </script>
+  import {mainBar, navBar, subTitle, title} from "../stores";
+  import homer from "/src/assets/homer.png";
+  import SettingsForm from "../components/SettingsForm.svelte";
+  import ImageForm from "../components/ImageForm.svelte";
+
+  title.set("Poi Tracker Inc");
+  subTitle.set("Edits and then save your settings");
+
+  navBar.set({
+    bar: mainBar
+  });
+</script>
   
   <div class="uk-flex-middle uk-text-center" uk-grid>
     <div class="uk-width-1-2@m ">
@@ -21,5 +22,6 @@
         <SettingsForm/>
       </div>
     </div>
+    <ImageForm/>
   </div>
   

@@ -46,6 +46,7 @@
   async function viewGallery(poiId){
         let candidatePoi = await poiService.getPoiById(poiId)
         console.log("Viewing" + poiId);
+        poi.set(candidatePoi);
         if (candidatePoi){
             poi.set(candidatePoi);
             push('/gallery')
