@@ -2,7 +2,8 @@ import axios from "axios";
 import {user} from "../stores.js"
 import {poi} from "../stores.js"
 import {category} from "../stores"
-
+import bcrypt from "bcryptjs";
+const  saltRounds = 10;
 
 export class PoiService {
   categoryList = [];
@@ -36,12 +37,15 @@ export class PoiService {
   }
   async signup(firstName, lastName, email, password) {
     try {
+      const storedPassword = password;
+      const hash = await bcrypt.hash(storedPassword, saltRounds);
       const userDetails = {
         firstName: firstName,
         lastName: lastName,
         email: email,
-        password: password,
+        password: hash,
       };
+      console.log(userDetails);
       const response = await axios.post(this.baseUrl + "/api/users", userDetails);
       const newUser = await response.data;
       user.set(newUser);
@@ -159,6 +163,19 @@ export class PoiService {
       return null;
     }
   }
+  /*
+  async addImage(id, file){
+    try {
+      console.log(file);
+      console.log(id);
+      const response = await axios.post(`${this.baseUrl}/api/uploadfile/${id}`, file)
+      console.log(response);
+      return response.status == 200;
+    } catch (error) {
+      return false;
+    }
+  }
+*/
   async createPoi(name, description, category, lat, long, creator, image) {
     try {
       const poi = {
