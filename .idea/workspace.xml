@@ -20,11 +20,18 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+<<<<<<< HEAD
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+=======
         <item name="BRANCH:feature-01" type="e8cecc67:BranchNodeDescriptor" />
+>>>>>>> 2fc0ba6d382370a7556362498b21e018840240ae
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="ecfd7035-d5a5-4a56-9ede-55e9f48f9c0e" name="Default Changelist" comment="" />
+=======
     <list default="true" id="ecfd7035-d5a5-4a56-9ede-55e9f48f9c0e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
@@ -37,6 +44,7 @@
       <change beforePath="$PROJECT_DIR$/src/pages/Settings.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Settings.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/poi-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/poi-service.js" afterDir="false" />
     </list>
+>>>>>>> 2fc0ba6d382370a7556362498b21e018840240ae
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,7 +96,11 @@
                   <entry key="branch">
                     <value>
                       <list>
+<<<<<<< HEAD
+                        <option value="master" />
+=======
                         <option value="feature-01" />
+>>>>>>> 2fc0ba6d382370a7556362498b21e018840240ae
                       </list>
                     </value>
                   </entry>
@@ -99,6 +111,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1621551146944">
