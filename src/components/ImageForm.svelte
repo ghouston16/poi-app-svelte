@@ -7,8 +7,8 @@
     import {LeafletMap} from '../services/leaflet-map';
 
     let categoryList = [];
-    let lat = 0;
-    let long = 0;
+   // let lat = 0;
+   //let long = 0;
     let creator = "";
     let name = "";
     let description = "";
