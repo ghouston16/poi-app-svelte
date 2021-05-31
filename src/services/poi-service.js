@@ -2,13 +2,14 @@ import axios from "axios";
 import {user} from "../stores.js"
 import {poi} from "../stores.js"
 import {category} from "../stores"
-import bcrypt from "bcryptjs";
+// bcrypt from "bcrypt";
 const  saltRounds = 10;
 
 export class PoiService {
   categoryList = [];
   poiList = [];
   baseUrl = "https://limitless-eyrie-50766.herokuapp.com";
+ // baseUrl = "https://localhost:4000";
 
   constructor(baseUrl) {
     this.baseUrl = baseUrl;
@@ -181,6 +182,7 @@ export class PoiService {
 */
   async createPoi(name, description, category, lat, long, creator, image) {
     try {
+     // const creator = 
       const poi = {
         name: name,
         description: description,

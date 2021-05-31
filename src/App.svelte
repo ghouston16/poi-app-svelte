@@ -21,6 +21,8 @@
 
 
   setContext("PoiService", new PoiService("https://limitless-eyrie-50766.herokuapp.com"));
+  
+  //setContext("PoiService", new PoiService("https://localhost:4000"));
 
   let routes = {
     "/": Main,

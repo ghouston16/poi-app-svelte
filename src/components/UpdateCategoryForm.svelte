@@ -4,7 +4,7 @@
     import { push } from "svelte-spa-router";
     let categoryId = $category._id;
     let name = $category.name;
-    let editCategory;
+   // let editCategory= { name: name};
     let message = "";
     let selectedCategory = 0;
     const poiService = getContext("PoiService");
@@ -12,9 +12,8 @@
     
     onMount(async () => {
         editCategory = await poiService.getCategoryById(categoryId);
-        console.log(category)
-        //const candidatePoi = await poiService.getPoiById($poi._id);
-
+        //console.log(category)
+        //const candidatePoi = await poiService.getPoiById($poi._id)
        // console.log(categoryList)
     });
 

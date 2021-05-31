@@ -6,8 +6,8 @@
     import {LeafletMap} from '../services/leaflet-map';
 
     let categoryList = [];
-    let lat = 0;
-    let long = 0;
+    let lat = "";
+    let long = "";
     let creator = "";
     let name = "";
     let description = "";
@@ -32,6 +32,7 @@
     });
     async function createPoi() {
         const success = await poiService.createPoi(name, description,categoryList[selectedCategory],lat,long,creator,image)
+        
         if (success) {
             push('/pois')
         } else {
