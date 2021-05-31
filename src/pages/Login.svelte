@@ -3,7 +3,7 @@ import { getContext } from "svelte";
 
     import { push } from "svelte-spa-router";
   
-    let email = ""
+    let email = "";
     let password = "";
     let errorMessage = "";
     const poiService = getContext("PoiService")

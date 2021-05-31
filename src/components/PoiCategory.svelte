@@ -9,7 +9,7 @@
 
     onMount(async () => {
       poiList = await poiService.getCategoryPois($category._id);
-      console.log(poiList);
+     // console.log(poiList);
     });
 
     async function deletePoi(poiId) {
@@ -28,7 +28,7 @@
       console.log(poiId); 
       const candidatePoi = await poiService.getPoiById(poiId);
       poi.set(candidatePoi)
-      console.log(poi)
+      //console.log(poi)
       let success= await poiService.getPoiById(poiId)
       if (success){
         push('/updatepoi')

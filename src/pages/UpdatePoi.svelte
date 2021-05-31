@@ -1,6 +1,6 @@
 <script lang="ts">
     import {mainBar, navBar, subTitle, title} from "../stores";
-    import homer from "/src/assets/homer.png";
+    import homer from "/src/assets/ireland-flag.jpg";
     import UpdatePoiForm from "../components/UpdatePoiForm.svelte";
   
     title.set("Poi Tracker Inc");

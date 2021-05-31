@@ -1,5 +1,5 @@
 <script>
-  import homer from "/src/assets/homer.png"
+  import homer from "/src/assets/ireland-flag.jpg"
   import {title, subTitle} from "../stores.js"
 </script>
 

@@ -8,7 +8,7 @@ const  saltRounds = 10;
 export class PoiService {
   categoryList = [];
   poiList = [];
-  baseUrl = "http://DESKTOP-9AB3VU3:4000";
+  baseUrl = "https://limitless-eyrie-50766.herokuapp.com";
 
   constructor(baseUrl) {
     this.baseUrl = baseUrl;
@@ -20,7 +20,10 @@ export class PoiService {
   async login(email, password) {
     try {
       const response = await axios.post(`${this.baseUrl}/api/users/authenticate`, {email, password});
-      console.log(response)
+      console.log(response);
+      //console.log(hash);
+      //const user = await  axios.get(`${this.baseUrl}/api/useremail`)
+    //  const isMatch = await bcrypt.compare(password, user.password);
       axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
       if (response.data.success) {
         user.set({
@@ -38,12 +41,12 @@ export class PoiService {
   async signup(firstName, lastName, email, password) {
     try {
       const storedPassword = password;
-      const hash = await bcrypt.hash(storedPassword, saltRounds);
+     // const hash = await bcrypt.hash(storedPassword, saltRounds);
       const userDetails = {
         firstName: firstName,
         lastName: lastName,
         email: email,
-        password: hash,
+        password:  password //hash,
       };
       console.log(userDetails);
       const response = await axios.post(this.baseUrl + "/api/users", userDetails);

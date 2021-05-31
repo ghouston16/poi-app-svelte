@@ -22,6 +22,4 @@
         <SettingsForm/>
       </div>
     </div>
-    <ImageForm/>
-  </div>
-  
+    </div>

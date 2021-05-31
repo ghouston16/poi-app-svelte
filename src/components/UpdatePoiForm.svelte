@@ -160,6 +160,3 @@
         >Delete
     </button>
 </div>
-<div>
-    <ImageForm/>
-</div>

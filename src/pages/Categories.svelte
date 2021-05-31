@@ -1,6 +1,6 @@
 <script>
     import CategoryList from "../components/CategoryList.svelte";
-    import homer4 from "/src/assets/homer.png";
+    import homer4 from "/src/assets/ireland-flag.jpg";
     import {navBar, mainBar, subTitle, title} from "../stores"
   
 

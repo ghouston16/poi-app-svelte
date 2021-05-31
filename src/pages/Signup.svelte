@@ -1,5 +1,5 @@
 <script lang="ts">
-    import homer from "/src/assets/homer.png";
+    import homer from "/src/assets/ireland-flag.jpg";
     import {title, subTitle, navBar, welcomeBar} from "../stores"
     import SignupForm from "../components/SignupForm.svelte"
   
